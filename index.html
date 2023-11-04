@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stack</title>
+  <!--Harish Reddy-->
+  <style type="text/css">
+    #stack5,
+    #stack4,
+    #stack3,
+    #stack2,
+    #stack1 {
+      height: 40px;
+      width: 80px;
+      background-color: #D9A74A;
+      margin-bottom: 2px;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      font-size: 22px;
+    }
+    input {
+      margin-top: 50px;
+      margin-bottom: 5px;
+    }
+    #container {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+    * {
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    button {
+      margin-top: 4px;
+    }
+  </style>
+  <script>
+    function push() {
+      var value = document.getElementById('value').value;
+      insert(value);
+    }
+    function insert(value) {
+      var i = 1;
+      while (i <= 5) {
+        var push = document.getElementById('stack' + i);
+        if (push.innerHTML.trim() === '') {
+          push.innerHTML = value;
+          break;
+        }
+        i += 1;
+        if (i == 6) {
+          alert('Stack overflow...!');
+        }
+      }
+    }
+    function pop() {
+      var i = 5;
+      while (i <= 5) {
+        var pop = document.getElementById('stack' + i);
+        if (pop.innerHTML.trim() !== '') {
+          pop.innerHTML = '';
+          break;
+        }
+        i -= 1;
+        if (i == 0) {
+          alert('Stack underflow...!');
+        }
+      }
+    }
+    function reset() {
+      var i = 5;
+      while (i <= 5) {
+        var pop = document.getElementById('stack' + i);
+        pop.innerHTML = ' ';
+        i -= 1;
+      }
+    }
+  </script>
+</head>
+<body>
+  <header style="color: #191F5F;text-decoration: underline; text-shadow: 1px 1px 1px; font-size: 32px; font-weight: bolder">
+    STACK
+  </header>
+  <main>
+    <input type="number" placeholder="Enter value to be inserted.." id="value"><br>
+    <button type="button" id="push" onclick="push()">Push</button>
+    <button type="button" id="pop" onclick="pop()">Pop</button>
+    <button type="reset" onclick="reset()">Reset</button>
+    <div id="container">
+      <div id="stack5"> </div>
+      <div id="stack4"> </div>
+      <div id="stack3"> </div>
+      <div id="stack2"> </div>
+      <div id="stack1"> </div>
+    </div>
+  </main>
+</body>
+  </html>
